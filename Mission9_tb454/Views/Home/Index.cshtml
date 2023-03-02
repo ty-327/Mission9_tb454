@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model BooksViewModel
+
+<!-- IQueryable<Book>-->
+<table class="table table-bordered table-striped">
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Book ID</td>
+            <td>Title</td>
+            <td>Author</td>
+            <td>Publisher</td>
+            <td>ISBN</td>
+            <td>Classification</td>
+            <td>Category</td>
+            <td>Page Count</td>
+            <td>Price</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Book b in Model.Books)
+        {
+            <tr>
+                <td>@b.BookId</td>
+                <td>@b.Title</td>
+                <td>@b.Author</td>
+                <td>@b.Publisher</td>
+                <td>@b.Isbn</td>
+                <td>@b.Classification</td>
+                <td>@b.Category</td>
+                <td>@b.PageCount</td>
+                <td>$@b.Price</td>
+
+                @*<td><a asp-controller="Home" asp-action="Edit" asp-route-movieid="@b.BookId">Edit</a></td>*@
+                @*<td><a asp-controller="Home" asp-action="Delete" asp-route-movieid="@b.BookId">Delete</a></td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div page-blah="@Model.PageInfo" page-action="Index"></div>
+
