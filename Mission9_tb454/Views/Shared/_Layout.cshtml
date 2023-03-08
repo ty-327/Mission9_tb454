@@ -33,11 +33,14 @@
         <span class="navbar-brand ml-2">Bookstore</span>
     </div>
     <div class="row m-1 p-1 text-center">
-        @*<div id="categories" class="col-3">
-            
-        </div>*@
-        <div class="col-9">
-            @RenderBody()
+        <div id="categories" class="col-2">
+            <vc:categories></vc:categories>
+        </div>
+
+        <div class="col-10">
+            <div>
+                @RenderBody()
+            </div>
         </div>
     </div>
     @*<div class="container">

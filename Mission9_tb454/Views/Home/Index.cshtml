@@ -23,23 +23,12 @@
     <tbody>
         @foreach (Book b in Model.Books)
         {
-            <tr>
-                <td>@b.BookId</td>
-                <td>@b.Title</td>
-                <td>@b.Author</td>
-                <td>@b.Publisher</td>
-                <td>@b.Isbn</td>
-                <td>@b.Classification</td>
-                <td>@b.Category</td>
-                <td>@b.PageCount</td>
-                <td>$@b.Price</td>
-
-                @*<td><a asp-controller="Home" asp-action="Edit" asp-route-movieid="@b.BookId">Edit</a></td>*@
-                @*<td><a asp-controller="Home" asp-action="Delete" asp-route-movieid="@b.BookId">Delete</a></td>*@
-            </tr>
+           <partial name="BookstoreSummary" model="b"/>
         }
     </tbody>
 </table>
 
-<div page-blah="@Model.PageInfo" page-action="Index"></div>
+<div page-blah="@Model.PageInfo" page-action="Index" page-class="btn"
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+     page-classes-enabled="true" class="btn-group pull-right m-1"></div>
 

@@ -1,0 +1,17 @@
+﻿@{
+}
+
+@model IEnumerable<string>
+
+<div class="d-grid gap-2 w-100" style="padding-bottom: 5px">
+    <a asp-controller="Home" asp-action="Index" asp-route-bookCategory="" asp-route-pageNum ="1" 
+       class="btn btn-block @(ViewBag.SelectedCategory == null ? "btn-primary" : "btn-outline-secondary")">Home</a>
+</div>
+
+@foreach (string c in Model) // c for category
+{
+    <div class="d-grid gap-2 w-100" style="padding-bottom: 5px">
+        <a asp-controller="Home" asp-action="Index" asp-route-bookCategory="@c" asp-route-pageNum ="1"
+           class="btn btn-block @(ViewBag.SelectedCategory == c ? "btn-primary" : "btn-outline-secondary")">@c</a>
+    </div>
+}
