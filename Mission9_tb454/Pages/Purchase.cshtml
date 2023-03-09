@@ -16,15 +16,15 @@
     </thead>
 
     <tbody>
-        @foreach(var i in Model.cart.Items)
-            {
-                <tr>
-                    <td>@i.Book.Title </td>
-                    <td>@i.Quantity</td>
-                    <td>@i.Book.Price</td> <!--might be wrong-->
-                    <td>@(i.Quantity * i.Book.Price)</td>
-                </tr>
-            }
+        @foreach (var i in Model.cart.Items)
+        {
+            <tr>
+                <td>@i.Book.Title </td>
+                <td>@i.Quantity</td>
+                <td>@i.Book.Price</td> <!--might be wrong-->
+                <td>@(i.Quantity * i.Book.Price)</td>
+            </tr>
+        }
     </tbody>
 
     <tfoot>
@@ -38,3 +38,24 @@
 <div>
     <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
 </div>
+
+<br />
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Warning!</strong> You don't have enough books in your cart. You need more!!!!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<!-- Add the following JavaScript code to make the close button work -->
+<script>
+  // Get the alert element
+  var alert = document.querySelector('.alert');
+
+  // Add an event listener to the close button
+  alert.querySelector('.close').addEventListener('click', function() {
+    // Hide the alert element
+    alert.style.display = 'none';
+  });
+</script>
