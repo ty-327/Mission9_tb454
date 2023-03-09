@@ -16,7 +16,20 @@
     <td>@Model.Category</td>
     <td>@Model.PageCount</td>
     <td>$@Model.Price</td>
+    <td>
+        <form method="post" asp-page="/Purchase">
+
+            <input type="hidden" asp-for="@Model.BookId" />
+            <input type="hidden" name="returnURL" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+            <span class="card-text">
+                <button type="submit" class="btn btn-success btn-sm float-end">Purchase</button>
+            </span>
+        </form>
+    </td>
+
+    
 
     @*<td><a asp-controller="Home" asp-action="Edit" asp-route-movieid="@Model.BookId">Edit</a></td>*@
     @*<td><a asp-controller="Home" asp-action="Delete" asp-route-movieid="@Model.BookId">Delete</a></td>*@
 </tr>
+
