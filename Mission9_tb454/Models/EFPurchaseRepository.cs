@@ -15,12 +15,20 @@ namespace Mission9_tb454.Models
             context = temp;
         }
 
-        // public IQueryable<BookPurchase> Purchases { get => throw new NotImplementedException(); set => throw new NotImplementedException(); } <--was this6
-        public IQueryable<BookPurchase> Purchases => context.Purchases.Include(x => x.Lines);
+        IQueryable<BookPurchase> IPurchaseRepository.Purchases { get => throw new NotImplementedException(); set => throw new NotImplementedException(); } //he doesn't have this line
+
+        public IQueryable<BookPurchase> Purchases => context.Purchases.Include(x => x.Lines).ThenInclude(x => x.Book);
 
         public void SavePurchase(BookPurchase bookPurchase)
         {
-            throw new NotImplementedException();
+            context.AttachRange(bookPurchase.Lines.Select(x => x.Book));
+
+            if (bookPurchase.PurchaseId == 0)
+            {
+                context.Purchases.Add(bookPurchase);
+            }
+
+            context.SaveChanges();
         }
     }
 }

@@ -9,8 +9,8 @@ using Mission9_tb454.Models;
 namespace Mission9_tb454.Migrations
 {
     [DbContext(typeof(BookstoreContext))]
-    [Migration("20230316034601_AddPurchasesTable")]
-    partial class AddPurchasesTable
+    [Migration("20230316061622_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -93,7 +93,7 @@ namespace Mission9_tb454.Migrations
 
                     b.HasKey("PurchaseId");
 
-                    b.ToTable("BookPurchase");
+                    b.ToTable("Purchases");
                 });
 
             modelBuilder.Entity("Mission9_tb454.Models.CartLineItem", b =>

@@ -91,7 +91,7 @@ namespace Mission9_tb454.Migrations
 
                     b.HasKey("PurchaseId");
 
-                    b.ToTable("BookPurchase");
+                    b.ToTable("Purchases");
                 });
 
             modelBuilder.Entity("Mission9_tb454.Models.CartLineItem", b =>
