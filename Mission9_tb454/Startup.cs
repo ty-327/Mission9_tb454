@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MySql.EntityFrameworkCore;
 
 namespace Mission9_tb454
 {
@@ -30,7 +31,7 @@ namespace Mission9_tb454
 
             services.AddDbContext<BookstoreContext>(options =>
             {
-                options.UseSqlite(Configuration["ConnectionStrings:BookstoreDBConnection"]);
+                options.UseMySQL(Configuration["ConnectionStrings:BookstoreDBConnection"]); // was options.UseSqlite
             });
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
             services.AddScoped<IPurchaseRepository, EFPurchaseRepository>();
